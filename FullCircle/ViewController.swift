@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         view.addSubview(circleView)
         
         // Animate the drawing of the circle over the course of 1 second
-        circleView.animateCircle(duration: 1.0)
+        circleView.animateCircle(duration: 3.0)
     }
 }
 

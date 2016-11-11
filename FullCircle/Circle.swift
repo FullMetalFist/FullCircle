@@ -10,7 +10,6 @@ import UIKit
 
 class Circle: UIView {
     
-    
     var circleLayer: CAShapeLayer!
     
     override init(frame: CGRect) {
@@ -42,17 +41,20 @@ class Circle: UIView {
     
     func animateCircle(duration: TimeInterval) {
         // We want to animate the strokeEnd property of the circleLayer
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        let animation = CAKeyframeAnimation(keyPath: "strokeEnd")
         
         // Set the animation duration appropriately
         animation.duration = duration
         
         // Animate from 0 (no circle) to 1 (full circle)
-        animation.fromValue = 0
-        animation.toValue = 1
+//        animation.fromValue = 0
+//        animation.toValue = 1
+        
+        // animation will slow at these intervals
+        animation.values = [0.0, 0.5, 0.75, 0.85, 0.9, 0.95]
         
         // Do a linear animation (i.e. the speed of the animation stays the same)
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+//        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
         // Set the circleLayer's strokeEnd property to 1.0 now so that it's the
         // right value when the animation ends.
